@@ -6,10 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/list.css">
 </head>
 
 <body>
-    sss
+    <div class="wrap">
+        <header>
+            <div class="content">
+                <dl class="ac">
+                    <dt>今天</dt>
+                    <dd>12-17</dd>
+                </dl>
+                <dl>
+                    <dt>明天</dt>
+                    <dd>12-18</dd>
+                </dl>
+                <dl>
+                    <dt>今天</dt>
+                    <dd>12-17</dd>
+                </dl>
+                <dl>
+                    <dt>明天</dt>
+                    <dd>12-18</dd>
+                </dl>
+            </div>
+        </header>
+    </div>
 </body>
+<script>
+    var content = document.querySelector('.content');
+    var cs = content.querySelectorAll('dl');
+    for (var i = 0; i < cs.length; i++) {
+        cs[i].classList.remove('ac');
+        cs[i].onclick = function() {
+            this.classList.add('ac')
+        }
+    }
+</script>
 
 </html>
