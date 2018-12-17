@@ -11,11 +11,12 @@ for (var i = 0; i < lis.length; i++) {
 btn.onclick = function() {
     var time = document.querySelector('.time').innerHTML;
     var xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/get/train_ticketstime=' + time, true);
+    xhr.open('get', '/api/get/train_tickets?time=' + time, true);
     xhr.onload = function(res) {
         if (res.target.status === 200) {
             console.log(res)
         }
     }
+    xhr.send();
     location.href = "list.html?time=" + time;
 }

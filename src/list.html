@@ -36,12 +36,24 @@
 <script>
     var content = document.querySelector('.content');
     var cs = content.querySelectorAll('dl');
+    var data = location.search.split('?')[1].split('=')[1];
+    console.log(data)
     for (var i = 0; i < cs.length; i++) {
-        cs[i].classList.remove('ac');
         cs[i].onclick = function() {
-            this.classList.add('ac')
+            for (var j = 0; j < cs.length; j++) {
+                cs[j].classList.remove('ac');
+            }
+            this.classList.add('ac');
         }
     }
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', '/api/get/train_tickets?time=' + data, true);
+    xhr.onload = function(res) {
+        if (res.target.status === 200) {
+            console.log(res)
+        }
+    }
+    xhr.send();
 </script>
 
 </html>
